@@ -8,24 +8,33 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header ("Movement and Camera Settings")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float xRange = 5f;
     [SerializeField] private float yRange = 5f;
+    [Header ("Tweaks")]
     [SerializeField] private float pitchPositionFactor = 1f;
     [SerializeField] private float pitchMovementFactor = 2f;
-    [SerializeField] private float rollPositionFactor = 2f;
-    [SerializeField] private float rollMovementFactor = 4f;
+    [SerializeField] private float rollPositionFactor = -2f;
+    [SerializeField] private float rollMovementFactor = -4f;
     [SerializeField] private float yawPositionFactor = -0.5f;
     [SerializeField] private float yawMovementFactor = -1f;
     
     private Vector2 _movement;  // movement input
+    private bool _isFiring;
     private bool _isTransforming;   // check if the ship is on manual movement or not
     private float _pitch, _yaw, _roll;
+
+    void Start()
+    {
+        _isFiring = false;
+    }
     
     void Update()
     {
         Move();
         ProcessRotation();
+        ProcessShooting();
     }
 
     void OnMove(InputValue input)
@@ -39,6 +48,14 @@ public class PlayerController : MonoBehaviour
         else
         {
             _isTransforming = false;
+        }
+    }
+
+    void OnFire(InputValue input)
+    {
+        if (input.isPressed)
+        {
+            _isFiring = true;
         }
     }
     
@@ -87,5 +104,14 @@ public class PlayerController : MonoBehaviour
         _yaw = positionalYaw + movementYaw;
             
         transform.localRotation = Quaternion.Euler(_pitch, _yaw, _roll);
+    }
+    
+    private void ProcessShooting()
+    {
+        if (_isFiring)
+        {
+            Debug.Log("Shooting");
+            _isFiring = false;
+        }
     }
 }
