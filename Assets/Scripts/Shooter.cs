@@ -7,6 +7,7 @@ namespace Project_Invasion
 {
     public class Shooter : MonoBehaviour
     {
+        [Tooltip("Add all player lasers here")]
         [SerializeField] private GameObject[] lasers;
 
         private PlayerController _playerController;
@@ -25,8 +26,11 @@ namespace Project_Invasion
         {
             foreach (GameObject laser in lasers)
             {
-                laser.SetActive(_playerController.isLaserActive);
+                var emissionLaser = laser.GetComponent<ParticleSystem>().emission;
+                emissionLaser.enabled = _playerController.isLaserActive;
             }
+
+            
         }
     }
 }

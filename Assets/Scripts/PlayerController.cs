@@ -11,12 +11,15 @@ namespace Project_Invasion
 {
     public class PlayerController : MonoBehaviour
     {
-        [Header ("Movement and Camera Settings")]
+        [Header("Movement and Camera Settings")]
+        [Tooltip("Controls up and down speed based upon the movement input")]
         [SerializeField] private float moveSpeed = 5f;
+        [Tooltip("Horizontal movement range of the player spaceship")]
         [SerializeField] private float xRange = 5f;
+        [Tooltip("Vertical movement range of the player spaceship")]
         [SerializeField] private float yRange = 5f;
         
-        [Header ("Tweaks")]
+        [Header("Tweaks")]
         [SerializeField] private float pitchPositionFactor = 1f;
         [SerializeField] private float pitchMovementFactor = 2f;
         [SerializeField] private float rollPositionFactor = -2f;
