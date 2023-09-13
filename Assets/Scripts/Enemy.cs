@@ -30,9 +30,8 @@ namespace Project_Invasion
         
         private void ProcessHit()
         {
-            GameObject vfx = Instantiate(enemyDeathEffect, transform.position, Quaternion.identity);
-            vfx.transform.parent = _parentForSpawned;
-            _score.AddScore(enemyHitScore);
+            GameObject fx = Instantiate(enemyDeathEffect, transform.position, Quaternion.identity);
+            fx.transform.parent = _parentForSpawned;
             enemyHitPoint -= enemyHitScore;
 
             if (enemyHitPoint == 0)
@@ -43,9 +42,10 @@ namespace Project_Invasion
 
         private void ProcessKill()
         {
-            GameObject vfx = Instantiate(enemyDeathEffect, transform.position, Quaternion.identity);
-            vfx.transform.parent = _parentForSpawned;
+            GameObject fx = Instantiate(enemyDeathEffect, transform.position, Quaternion.identity);
+            fx.transform.parent = _parentForSpawned;
             Destroy(gameObject);
+            _score.AddScore(enemyHitScore);
         }
     }
 }

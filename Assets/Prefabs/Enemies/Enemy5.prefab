@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8178875869293250639}
   - component: {fileID: 444828085278893049}
+  - component: {fileID: -3751964886810915232}
   m_Layer: 0
   m_Name: Enemy5
   m_TagString: Untagged
@@ -55,9 +56,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDeathEffect: {fileID: 3200836327345539238, guid: 09c4e637806eb4201b112efb57656ea8, type: 3}
-  parentForSpawned: {fileID: 0}
   enemyHitScore: 5
   enemyHitPoint: 80
+--- !u!65 &-3751964886810915232
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3762530674784004846}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &298123989911690264
 PrefabInstance:
   m_ObjectHideFlags: 0
